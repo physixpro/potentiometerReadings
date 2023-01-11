@@ -12,9 +12,20 @@ void loop()
 {
   // put your main code here, to run repeatedly:
   int sensorValue = analogRead(A4);
+
+  // Equations
+
   float voltage = sensorValue * (5.0 / 1023.0);
-    Serial.print(voltage);
+  Serial.print(voltage);
   Serial.println(" potentiometer voltage");
+
+  float current = (voltage / 461);
+  Serial.print(current);
+  Serial.println(" current of potentiometer");
+
+  float resistance = (voltage/current);
+  Serial.print(resistance);
+  Serial.println("resistance of potentiometer");
 
   float temperatureC = (voltage - 0.5) * 100;
   Serial.print(temperatureC);
@@ -23,9 +34,8 @@ void loop()
   float temperatureF = (temperatureC * 9.0 / 5.0) + 32.0;
   Serial.print(temperatureF);
   Serial.println(" degrees F is our temperature");
-Serial.println("     ");
-Serial.println("     ");
- 
+  Serial.println("     ");
+  Serial.println("     ");
 
   digitalWrite(MY_LED, HIGH);
   delay(1000);
