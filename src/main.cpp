@@ -17,15 +17,15 @@ void loop()
 
   float voltage = sensorValue * (5.0 / 1023.0);
   Serial.print(voltage);
-  Serial.println(" potentiometer voltage");
+  Serial.println(" potentiometer voltage reading");
 
   float current = (voltage / 461);
   Serial.print(current);
-  Serial.println(" current of potentiometer");
+  Serial.println(" potentiometer current reading");
 
   float resistance = (voltage/current);
   Serial.print(resistance);
-  Serial.println("resistance of potentiometer");
+  Serial.println(" potentiometer resistance reading");
 
   float temperatureC = (voltage - 0.5) * 100;
   Serial.print(temperatureC);
